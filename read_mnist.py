@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 
 
 # A function to plot images
@@ -11,12 +12,12 @@ def show_image(img):
 # A function to read and return the train set
 def get_train_set():
     # Reading The Train Set
-    train_images_file = open('train-images.idx3-ubyte', 'rb')
+    train_images_file = open('./data/train-images.idx3-ubyte', 'rb')
     train_images_file.seek(4)
     num_of_train_images = int.from_bytes(train_images_file.read(4), 'big')
     train_images_file.seek(16)
 
-    train_labels_file = open('train-labels.idx1-ubyte', 'rb')
+    train_labels_file = open('./data/train-labels.idx1-ubyte', 'rb')
     train_labels_file.seek(8)
 
     train_set = []
@@ -41,10 +42,10 @@ def get_train_set():
 # A function to read and return the train set
 def get_test_set():
     # Reading The Test Set
-    test_images_file = open('t10k-images.idx3-ubyte', 'rb')
+    test_images_file = open('./data/t10k-images.idx3-ubyte', 'rb')
     test_images_file.seek(4)
 
-    test_labels_file = open('t10k-labels.idx1-ubyte', 'rb')
+    test_labels_file = open('./data/t10k-labels.idx1-ubyte', 'rb')
     test_labels_file.seek(8)
 
     num_of_test_images = int.from_bytes(test_images_file.read(4), 'big')
@@ -62,6 +63,18 @@ def get_test_set():
 
         test_set.append((image, label))
     return test_set
+
+
+def save_sample_train_set():
+    train_set = get_train_set()
+    _sample = train_set[0:100].copy()
+    with open("./data/sample_train_set.tr", 'wb') as f:
+        pickle.dump(train_set, f)
+        f.close()
+
+
+def load_sample_train_set():
+    return pickle.load(open("./data/sample_train_set.tr", 'rb'))
 
 # Plotting an image
 # _ts = get_train_set()
