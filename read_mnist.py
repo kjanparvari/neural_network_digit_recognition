@@ -20,6 +20,8 @@ def get_train_set():
     train_labels_file.seek(8)
 
     train_set = []
+    # images = []
+    # labels = []
     for n in range(num_of_train_images):
         image = np.zeros((784, 1))
         for i in range(784):
@@ -29,8 +31,11 @@ def get_train_set():
         label = np.zeros((10, 1))
         label[label_value, 0] = 1
 
+        # images.append(images)
+        # labels.append(label)
         train_set.append((image, label))
     return train_set
+    # return images, labels
 
 
 # A function to read and return the train set
@@ -58,9 +63,8 @@ def get_test_set():
         test_set.append((image, label))
     return test_set
 
-
 # Plotting an image
-_ts = get_train_set()
-show_image(_ts[0][0])
-print(_ts[0][1])
-plt.show()
+# _ts = get_train_set()
+# show_image(_ts[0][0])
+# print(_ts[0][1])
+# plt.show()
