@@ -1,9 +1,7 @@
-from read_mnist import load_sample_train_set
 from neural_network import NeuralNetwork
+from read_mnist import load_train_data
 
 if __name__ == '__main__':
-    # save_sample_train_set()
-    samples = load_sample_train_set()
-    network = NeuralNetwork(784, 16, 16, 10)
-    network.train(samples)
-    exit(1)
+    print("Loading Data ...")
+    nn = NeuralNetwork(784, 16, 16, 10, epoch_number=5, batch_size=50, learning_rate=1.0)
+    nn.train(data=load_train_data())

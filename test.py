@@ -1,9 +1,9 @@
 from neural_network import NeuralNetwork
-from read_mnist import load_sample_train_set
-
+from read_mnist import load_train_data, load_test_data
+import numpy as np
 
 if __name__ == '__main__':
-    network = NeuralNetwork.load()
-    samples = load_sample_train_set()
-    network.test(samples)
-    exit(1)
+    print("Loading Data ...")
+    nn = NeuralNetwork.load()
+    # nn.test(data=load_train_data())
+    nn.test(data=load_test_data())
