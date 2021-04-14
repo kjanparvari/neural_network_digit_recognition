@@ -4,14 +4,14 @@ import numpy as np
 def load_test_data():
     test_images = open('t10k-images.idx3-ubyte', 'rb')
     test_images.seek(4)
-    num_of_train_images = int.from_bytes(test_images.read(4), 'big')
+    num_of_test_images = int.from_bytes(test_images.read(4), 'big')
     test_images.seek(16)
     test_labels = open('t10k-labels.idx1-ubyte', 'rb')
     test_labels.seek(8)
 
     test_set = []
 
-    for n in range(num_of_train_images):
+    for n in range(num_of_test_images):
         image = np.zeros((784, 1))
         for i in range(784):
             image[i, 0] = int.from_bytes(test_images.read(1), 'big') / 256
@@ -50,14 +50,14 @@ def load_train_data():
 def load_adversarial_test_data():
     test_images = open('t10k-images.idx3-ubyte', 'rb')
     test_images.seek(4)
-    num_of_train_images = int.from_bytes(test_images.read(4), 'big')
+    num_of_test_images = int.from_bytes(test_images.read(4), 'big')
     test_images.seek(16)
     test_labels = open('t10k-labels.idx1-ubyte', 'rb')
     test_labels.seek(8)
 
     test_set = []
 
-    for n in range(num_of_train_images):
+    for n in range(num_of_test_images):
         image = np.zeros((784, 1))
         for i in range(784):
             image[i, 0] = int.from_bytes(test_images.read(1), 'big') / 256

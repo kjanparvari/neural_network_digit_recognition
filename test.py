@@ -6,6 +6,6 @@ import numpy as np
 if __name__ == '__main__':
     print("Loading Data ...")
     nn = NeuralNetwork.load()
-    nn.test(data=load_train_data())
-    # nn.test(data=load_test_data())
+    # nn.test(data=load_train_data())
+    nn.test(data=load_test_data())
     # nn.test(data=load_adversarial_test_data())
