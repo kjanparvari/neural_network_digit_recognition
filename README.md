@@ -18,4 +18,4 @@ This project provides a hands-on understanding of neural networks by implementin
 This project was developed as part of the **Computational Intelligence course** at **Amirkabir University of Technology (AUT)**.  
 
 ## License  
-This project is licensed under the AUT License. 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.  
